@@ -47,5 +47,22 @@ router.get('/', async (req, res) => {
 		return respond(res, err.message, false);
 	}
 });
+router.post('/request-password-reset', fieldValidators.validateResult, async (req, res) => {
+	try {
+		const response = await userController.requestPasswordReset(req.body);
+		return respond(res, response);
+	} catch (err) {
+		return respond(res, err.message, false);
+	}
+});
+
+router.post('/reset-password', fieldValidators.validateResult, async (req, res) => {
+	try {
+		const response = await userController.passwordReset(req.body);
+		return respond(res, response);
+	} catch (err) {
+		return respond(res, err.message, false);
+	}
+});
 
 module.exports = router;

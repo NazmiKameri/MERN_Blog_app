@@ -26,6 +26,12 @@ module.exports = {
 			check('title', 'Title must not be empty').notEmpty(),
 			check('descripton', 'Descripton must not be empty').notEmpty(),
 		],
+		resetPassword: [
+			check('token', 'token field must not be empty').notEmpty(),
+			check('token', 'token field must be a jwt token').isJWT(),
+			check('password', 'password must have minimum 6 characters').isLength({ min: 6 }),
+			check('password', 'password must not be empty').notEmpty(),
+		],
 	},
 
 	validateResult: (req, res, next) => {

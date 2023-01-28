@@ -3,7 +3,7 @@ const User = require('../models/model.user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { sendVerificationEmail } = require('../lib/emails');
+const { sendVerificationEmail, sendPasswordResetEmail } = require('../lib/emails');
 
 module.exports = {
 	getAllUsers: async (req, res) => {
@@ -51,6 +51,30 @@ module.exports = {
 			throw Error('User does not exist');
 		}
 		await User.findByIdAndUpdate(user._id, { verified: true }).exec();
+
+		return true;
+	},
+	requestPasswordReset: async (body) => {
+		const { email } = body;
+
+		const user = await User.findOne({ email }).exec();
+		if (!user) {
+			throw Error('This email doesnt belong to any user');
+		}
+		sendPasswordResetEmail(user);
+		return true;
+	},
+	passwordReset: async (body) => {
+		const { token, password } = body;
+
+		const decoded = jwt.verify(token, process.env.JWT_VERIFICATION_SECRET);
+		console.log(decoded);
+		const user = await User.findById({ _id: decoded._id }).exec();
+		if (!user) {
+			throw Error('User doesnt exist');
+		}
+		const hashedPassword = bcrypt.hashSync(password, parseInt(process.env.SALT));
+		await User.findByIdAndUpdate(user._id, { password: hashedPassword }).exec();
 		return true;
 	},
 };
