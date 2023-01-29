@@ -1,3 +1,4 @@
+import AddNewBlog from '../pages/AddNewBlog/AddNewBlog';
 import BlogPost from '../pages/BlogPost/BlogPost';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound/NotFound';
@@ -6,7 +7,7 @@ import Register from '../pages/Register/Register';
 
 const routesData = [
 	{
-		path: '/',
+		path: '/login',
 		element: <Login />,
 	},
 	{
@@ -20,6 +21,10 @@ const routesData = [
 	{
 		path: '/post',
 		element: <Post />,
+	},
+	{
+		path: '/write',
+		element: <AddNewBlog />,
 	},
 	{
 		path: '*',

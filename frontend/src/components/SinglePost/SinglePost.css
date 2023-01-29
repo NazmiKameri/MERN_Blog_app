@@ -1,0 +1,51 @@
+.singlePost {
+    flex: 9;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.postImg {
+    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.postTitle {
+    text-align: center;
+    margin: 10px;
+    font-style: italic;
+}
+
+.postEdit {
+    float: right;
+
+}
+
+.postEdit i {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.postEdit .edit {
+    color: teal;
+}
+
+.postEdit .delete {
+    color: tomato;
+}
+
+.postInfo {
+    margin-bottom: 20px;
+    color: rgb(240, 175, 95);
+}
+
+.postDecsripton {
+    color: #666;
+    font-size: 18px;
+    line-height: 24px;
+}

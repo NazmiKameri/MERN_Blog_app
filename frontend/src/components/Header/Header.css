@@ -49,3 +49,14 @@
 .rightList {
     justify-content: end;
 }
+
+.navlinkItem {
+    text-decoration: none;
+    color: #666;
+
+}
+
+.navlinkItem:hover {
+    color: rgb(37, 37, 66);
+
+}

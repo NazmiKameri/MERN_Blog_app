@@ -1,0 +1,33 @@
+.addNewBlog {
+    background-image: url('../../../public/office-table-with-cup-coffee-keyboard-notepad.jpg');
+    background-size: cover;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+.formGroup {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.srcInput {
+    font-size: 24px;
+    padding: 20px;
+    width: 60vw;
+
+}
+
+.inputTextArea {
+    height: 200px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 20px 80px;
+    cursor: pointer;
+    background-color: rgb(101, 146, 131);
+    border: none;
+    color: white;
+    border-radius: 8px;
+}

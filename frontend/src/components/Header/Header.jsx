@@ -1,4 +1,5 @@
 import './Header.css';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
 	return (
@@ -10,16 +11,41 @@ export default function Header() {
 			</div>
 			<div className="topCenter">
 				<ul className="centerList">
-					<li className="centerListItem">Home</li>
-					<li className="centerListItem">Write</li>
-					<li className="centerListItem">Blogs</li>
-					<li className="centerListItem">Logout</li>
+					<li className="centerListItem">
+						<NavLink className={'navlinkItem'} to={'/blogs'}>
+							Home
+						</NavLink>
+					</li>
+					<li className="centerListItem">
+						<NavLink className={'navlinkItem'} to={'/write'}>
+							Add Blog
+						</NavLink>
+					</li>
+					<li className="centerListItem">
+						<NavLink className={'navlinkItem'} to={'/blogs'}>
+							Blogs
+						</NavLink>
+					</li>
+					<li className="centerListItem">
+						{' '}
+						<NavLink className={'navlinkItem'} to={'/post'}>
+							Post
+						</NavLink>
+					</li>
 				</ul>
 			</div>
 			<div className="topRight">
 				<ul className="rightList">
-					<li className="rightListItem">Login</li>
-					<li className="rightListItem">Register</li>
+					<li className="rightListItem">
+						<NavLink className={'navlinkItem'} to={'/login'}>
+							Login
+						</NavLink>
+					</li>
+					<li className="rightListItem">
+						<NavLink className={'navlinkItem'} to={'/register'}>
+							Register
+						</NavLink>
+					</li>
 				</ul>
 			</div>
 		</div>
