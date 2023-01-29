@@ -1,0 +1,47 @@
+.login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../public/office-table-with-cup-coffee-keyboard-notepad.jpg');
+    color: wheat;
+    background-size: cover;
+}
+
+.loginTitle {
+    font-size: 50px;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.loginForm {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm label {
+    margin: 10px 0;
+}
+
+.loginInput {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+
+}
+
+.loginButton {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(101, 146, 131);
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
+.loginForgotPassword {
+    color: antiquewhite;
+}

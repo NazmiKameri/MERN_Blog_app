@@ -1,0 +1,47 @@
+.register {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../public/office-table-with-cup-coffee-keyboard-notepad.jpg');
+    color: wheat;
+    background-size: cover;
+}
+
+.registerTitle {
+    font-size: 50px;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.registerForm {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerForm label {
+    margin: 10px 0;
+}
+
+.registerInput {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+
+}
+
+.registerButton {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(101, 146, 131);
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
+.registerForgotPassword {
+    color: antiquewhite;
+}
