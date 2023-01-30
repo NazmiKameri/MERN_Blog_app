@@ -15,12 +15,14 @@
 }
 
 .registerForm {
+    width: 300px;
     margin-top: 18px;
     display: flex;
     flex-direction: column;
 }
 
 .registerForm label {
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.8);
     margin: 10px 0;
 }
 
@@ -44,4 +46,9 @@
 
 .registerForgotPassword {
     color: antiquewhite;
+}
+
+.danger {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
 }

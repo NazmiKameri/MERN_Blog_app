@@ -1,18 +1,95 @@
+import { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
+import { emailRegex, passwordRegex } from '../../../lib/constants';
+
 const RegisterForm = () => {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [errorMessages, setErrorMessages] = useState([]);
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const errors = [];
+		setErrorMessages(errors);
+		if (!emailRegex.test(email)) {
+			errors.push('Please provide a valid email address');
+		}
+		if (!passwordRegex.test(password)) {
+			errors.push(
+				`Password must be minimum eight characters,
+				 `
+			);
+			errors.push(`at least one letter and one number`);
+		}
+		if (!firstName) {
+			errors.push('Please provide a first name');
+		}
+		if (!lastName) {
+			errors.push('Please provide a last name');
+		}
+
+		if (errors.length) {
+			setErrorMessages(errors);
+			return;
+		}
+	};
+
 	return (
 		<div className="register">
 			<h2 className="registerTitle">Register</h2>
-			<form action="" className="registerForm">
+			<form action="" className="registerForm" onSubmit={handleSubmit}>
+				{errorMessages.length > 0 &&
+					errorMessages.map((elem, index) => (
+						<Alert key={index} variant="danger" className="danger">
+							{elem}
+						</Alert>
+					))}
 				<label>Firstname</label>
-				<input type="text" className="registerInput" placeholder="Enter your firstname" />
-				<label>lastname</label>
-				<input type="text" className="registerInput" placeholder="Enter your lastname" />
+				<input
+					type="text"
+					value={firstName}
+					className="registerInput"
+					placeholder="Enter your firstname"
+					onChange={(e) => {
+						setFirstName(e.target.value);
+					}}
+				/>
+				<label>Lastname</label>
+				<input
+					type="text"
+					value={lastName}
+					className="registerInput"
+					placeholder="Enter your lastname"
+					onChange={(e) => {
+						setLastName(e.target.value);
+					}}
+				/>
 				<label>Email</label>
-				<input type="email" className="registerInput" placeholder="Enter your email" />
+				<input
+					type="email"
+					value={email}
+					className="registerInput"
+					placeholder="Enter your email"
+					onChange={(e) => {
+						setEmail(e.target.value);
+					}}
+				/>
 				<label>Password</label>
-				<input type="text" className="registerInput" placeholder="Enter your password" />
+				<input
+					type="text"
+					value={password}
+					className="registerInput"
+					placeholder="Enter your password"
+					onChange={(e) => {
+						setPassword(e.target.value);
+					}}
+				/>
 
-				<button className="registerButton">Register</button>
+				<button className="registerButton" type="submit">
+					Register
+				</button>
 			</form>
 		</div>
 	);
