@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
+import api, { endpoints } from '../../../lib/api';
 import { emailRegex, passwordRegex } from '../../../lib/constants';
 
-const RegisterForm = () => {
+const RegisterForm = ({ setRegistered }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [firstName, setFirstName] = useState('');
@@ -34,6 +35,12 @@ const RegisterForm = () => {
 			setErrorMessages(errors);
 			return;
 		}
+		const response = await api.call(endpoints.register, { email, password, firstName, lastName });
+		if (!response.confirm) {
+			setErrorMessages([response.results]);
+			return;
+		}
+		setRegistered(true);
 	};
 
 	return (

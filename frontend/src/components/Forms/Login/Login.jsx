@@ -1,10 +1,15 @@
 import { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import api, { endpoints } from '../../../lib/api';
 import Alert from 'react-bootstrap/Alert';
+import { login } from '../../../lib/store/slices/authSlice';
+
 const LoginForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorMessages, setErrorMessages] = useState([]);
+
+	const dispatch = useDispatch();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -20,6 +25,14 @@ const LoginForm = () => {
 			setErrorMessages(errors);
 			return;
 		}
+
+		const response = await api.call(endpoints.login, { email, password });
+		if (!response.confirm) {
+			setErrorMessages([response.results]);
+			return;
+		}
+		dispatch(login(response.results));
+		console.log(dispatch(login(response.results)));
 	};
 
 	return (
@@ -34,7 +47,7 @@ const LoginForm = () => {
 					))}
 				<label>Email</label>
 				<input
-					type="text"
+					type="email"
 					className="loginInput"
 					placeholder="Enter your email"
 					value={email}
@@ -52,7 +65,7 @@ const LoginForm = () => {
 						setPassword(e.target.value);
 					}}
 				/>
-				<button className="loginButton" type="submit">
+				<button className="loginButton" variant="primary" type="submit">
 					Login
 				</button>
 				<a href="/" className="loginForgotPassword">
