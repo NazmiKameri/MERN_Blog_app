@@ -20,8 +20,9 @@ const routesData = {
 			path: '/blogs',
 			element: <BlogPost />,
 		},
+
 		{
-			path: '/post',
+			path: '/post/:id',
 			element: <Post />,
 		},
 		{

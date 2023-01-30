@@ -36,7 +36,7 @@ router.put('/edit-blog/:id', validateUserToken, async (req, res) => {
 		return respond(res, err.message, false);
 	}
 });
-router.get('/get-blog/:id', validateUserToken, async (req, res) => {
+router.get('/getblog/:id', validateUserToken, async (req, res) => {
 	try {
 		const blog = await blogController.getBlogById(req.params);
 		return respond(res, blog);

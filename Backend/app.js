@@ -13,6 +13,7 @@ var app = express();
 const dbConfig = require('./lib/dbConfig');
 
 dbConfig.connect();
+
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());

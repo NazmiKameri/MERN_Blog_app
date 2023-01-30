@@ -1,40 +1,54 @@
 import './SinglePost.css';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import api, { endpoints } from '../../lib/api';
 
 function SinglePost() {
+	const location = useLocation();
+
+	const path = `${location.pathname.split('/')[2]}`;
+
+	const [post, setPost] = useState('');
+	useEffect(() => {
+		setPost('');
+		const getPost = async () => {
+			endpoints.getBlog.url += path;
+			const response = await api.call(endpoints.getBlog);
+			endpoints.getBlog.url = '/blogs/getblog/';
+			if (!response.confirm) {
+				console.log('failed');
+			}
+
+			setPost(response.results);
+		};
+
+		getPost();
+	}, [path]);
+	console.log(post);
 	return (
 		<div className="singlePost">
 			<div className="wrapper">
 				<img
-					src="https://st3.depositphotos.com/5793738/15485/i/600/depositphotos_154856142-free-stock-photo-colorful-autumn-in-the-forest.jpg"
+					src={
+						post.image_url
+							? post.image_url
+							: 'https://st4.depositphotos.com/5852318/23716/i/600/depositphotos_237163860-free-stock-photo-concept-hacker-attack-magnifier-background.jpg'
+					}
 					alt=""
 					className="postImg"
 				/>
 				<h1 className="postTitle">
-					Lorem lorem lorem
+					{post.title}
 					<div className="postEdit">
 						<i class="edit fa-solid fa-pen-to-square"></i>
 						<i class="delete fa-solid fa-trash"></i>
 					</div>
 				</h1>
 				<div className="postInfo">
-					<span className="postAuthor">Author: Nk</span>
-					<span className="postCreatedDate">3 hours ago</span>
+					<span className="postAuthor">Author: {post.user}</span>
+					<span className="postCreatedDate">{new Date(post.createdAt).toUTCString()}</span>
 				</div>
-				<p className="postDecsripton">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error recusandae commodi
-					possimus. Porro cumque at, nulla ullam aspernatur soluta similique temporibus quia hic
-					odio illo molestias saepe tenetur voluptatum impedit!Lorem ipsum dolor sit, amet
-					consectetur adipisicing elit. Error recusandae commodi possimus. Porro cumque at, nulla
-					ullam aspernatur soluta similique temporibus quia hic odio illo molestias saepe tenetur
-					voluptatum impedit!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
-					recusandae commodi possimus. Porro cumque at, nulla ullam aspernatur soluta similique
-					temporibus quia hic odio illo molestias saepe tenetur voluptatum impedit!Lorem ipsum dolor
-					sit, amet consectetur adipisicing elit. Error recusandae commodi possimus. Porro cumque
-					at, nulla ullam aspernatur soluta similique temporibus quia hic odio illo molestias saepe
-					tenetur voluptatum impedit!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
-					recusandae commodi possimus. Porro cumque at, nulla ullam aspernatur soluta similique
-					temporibus quia hic odio illo molestias saepe tenetur voluptatum impedit!
-				</p>
+				<p className="postDecsripton">{post.descripton}</p>
 			</div>
 		</div>
 	);
