@@ -9,7 +9,8 @@ module.exports = {
 		return blogs;
 	},
 	addBlog: async (req) => {
-		const { title, image_url, descripton } = req.body;
+		console.log(req.body);
+		const { title, imageUrl, descripton } = req.body;
 		let existingUser;
 		const decodedId = getDecodedToken(req);
 
@@ -24,7 +25,7 @@ module.exports = {
 		}
 		const blog = await Blog.create({
 			title: title,
-			image_url: image_url,
+			image_url: imageUrl,
 			descripton: descripton,
 			user: decodedId,
 		});

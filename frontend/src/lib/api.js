@@ -23,6 +23,27 @@ export const endpoints = {
 			Authorization: 'Bearer ' + localStorage.getItem('auth'),
 		},
 	},
+	createBlog: {
+		url: '/blogs/add-blog',
+		method: 'POST',
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('auth'),
+		},
+	},
+	deleteBlog: {
+		url: '/blogs/delete/',
+		method: 'Delete',
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('auth'),
+		},
+	},
+	editBlog: {
+		url: '/blogs/edit-blog/',
+		method: 'PUT',
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('auth'),
+		},
+	},
 };
 
 const api = {

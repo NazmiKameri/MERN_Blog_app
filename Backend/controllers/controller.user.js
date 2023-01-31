@@ -41,6 +41,12 @@ module.exports = {
 
 		return token;
 	},
+	getMe: async (_id) => {
+		console.log('hello here ' + _id);
+		const user = await User.findById({ _id }).exec();
+		// console.log(user);
+		return user;
+	},
 	verifyAccount: async (token) => {
 		if (!token) {
 			throw Error('There is no token provided');

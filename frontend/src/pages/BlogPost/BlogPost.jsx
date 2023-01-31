@@ -6,6 +6,7 @@ import api, { endpoints } from '../../lib/api';
 
 function BlogPost() {
 	const [posts, setPosts] = useState([]);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await api.call(endpoints.getBlogs);
@@ -13,15 +14,16 @@ function BlogPost() {
 				console.log('failed');
 			}
 			setPosts(response.results);
-			console.log(response);
+			// eslint-disable-next-line
 		};
 		fetchData();
+		// eslint-disable-next-line
 	}, []);
 
 	return (
 		<div className="posts">
-			{posts.map((post) => {
-				return <Post post={post} />;
+			{posts.map((post, index) => {
+				return <Post post={post} user={post.user} key={index} />;
 			})}
 		</div>
 	);

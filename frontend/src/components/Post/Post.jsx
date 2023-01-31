@@ -5,7 +5,7 @@
 import { Link } from 'react-router-dom';
 
 function Post({ post }) {
-	console.log(post);
+	// console.log(post);
 	return (
 		<div className="post">
 			<img
