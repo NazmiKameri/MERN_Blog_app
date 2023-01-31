@@ -36,15 +36,26 @@ module.exports = {
 		if (!bcrypt.compareSync(password, user.password)) {
 			throw Error('The passwords do not match');
 		}
+		if (!user.verified) {
+			throw Error('This user is not verified please check ur email for verefication');
+		}
 
 		const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
 
 		return token;
 	},
-	getMe: async (_id) => {
-		console.log('hello here ' + _id);
-		const user = await User.findById({ _id }).exec();
+	getMe: async (token) => {
+		const splitToken = token.split(' ')[1];
+
+		const decodedToken = jwt.verify(splitToken, process.env.JWT_SECRET);
+		const decodedId = decodedToken._id;
+		const user = await User.findById({ _id: decodedId }).exec();
 		// console.log(user);
+		return user;
+	},
+	getUserById: async (params) => {
+		const { id } = params;
+		const user = await User.findById({ _id: id }).exec();
 		return user;
 	},
 	verifyAccount: async (token) => {

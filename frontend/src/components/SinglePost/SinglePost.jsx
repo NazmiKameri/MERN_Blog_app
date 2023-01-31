@@ -13,11 +13,15 @@ function SinglePost() {
 	const [post, setPost] = useState('');
 
 	const location = useLocation();
-
+	let decodedID = '';
 	const path = `${location.pathname.split('/')[2]}`;
 	let result = window.localStorage.getItem('auth');
-	const decoded = jwt_decode(result);
-	const decodedID = decoded._id;
+	if (result) {
+		const decoded = jwt_decode(result);
+
+		decodedID = decoded._id;
+	}
+
 	const navigate = useNavigate();
 	useEffect(() => {
 		setPost('');
@@ -103,7 +107,7 @@ function SinglePost() {
 				)}
 
 				<div className="postInfo">
-					<span className="postAuthor">Author: {post.user}</span>
+					<span className="postAuthor">Author: {post.userName}</span>
 					<span className="postCreatedDate">{new Date(post.createdAt).toUTCString()}</span>
 				</div>
 

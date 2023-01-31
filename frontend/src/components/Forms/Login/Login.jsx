@@ -32,7 +32,7 @@ const LoginForm = () => {
 			return;
 		}
 		dispatch(login(response.results));
-		console.log(dispatch(login(response.results)));
+		// console.log(dispatch(login(response.results)));
 	};
 
 	return (
@@ -68,7 +68,7 @@ const LoginForm = () => {
 				<button className="loginButton" variant="primary" type="submit">
 					Login
 				</button>
-				<a href="/" className="loginForgotPassword">
+				<a href="/forgot-password" className="loginForgotPassword">
 					Forgot Password
 				</a>
 			</form>

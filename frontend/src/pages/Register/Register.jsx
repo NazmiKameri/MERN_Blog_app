@@ -10,7 +10,9 @@ function Register() {
 			{!isRegistered ? (
 				<RegisterForm setRegistered={setIsRegistered} />
 			) : (
-				<h3>An email has been sent to your email ,Please verify your account.</h3>
+				<div style={{ height: '100vh' }}>
+					<h3>An email has been sent to your email ,Please verify your account.</h3>
+				</div>
 			)}
 		</>
 	);

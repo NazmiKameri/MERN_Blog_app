@@ -4,8 +4,7 @@
 
 import { Link } from 'react-router-dom';
 
-function Post({ post }) {
-	// console.log(post);
+function Post({ post, userName }) {
 	return (
 		<div className="post">
 			<img
@@ -22,7 +21,7 @@ function Post({ post }) {
 					<p className="postTitle">{post.title}</p>
 				</Link>
 				<p className="postDate">{new Date(post.createdAt).toUTCString()}</p>
-				<p className="postAuthor">Author:{post.user}</p>
+				<p className="postAuthor">Author:{post.userName}</p>
 			</div>
 			<p className="postDescripton">{post.descripton}</p>
 		</div>

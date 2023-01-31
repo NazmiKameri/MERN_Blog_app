@@ -9,6 +9,23 @@ export const endpoints = {
 		url: '/auth/register',
 		method: 'POST',
 	},
+	verifyAccount: {
+		url: '/auth/verify-account',
+		method: 'GET',
+	},
+	requestPasswordReset: {
+		url: 'auth/request-password-reset',
+		method: 'POST',
+	},
+	resetPassword: {
+		url: 'auth/reset-password',
+		method: 'POST',
+	},
+	getUserById: {
+		url: '/users/',
+		method: 'GET',
+	},
+
 	getBlogs: {
 		url: '/blogs',
 		method: 'GET',
@@ -40,6 +57,13 @@ export const endpoints = {
 	editBlog: {
 		url: '/blogs/edit-blog/',
 		method: 'PUT',
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('auth'),
+		},
+	},
+	getMyBlogs: {
+		url: '/blogs/users/',
+		method: 'GET',
 		headers: {
 			Authorization: 'Bearer ' + localStorage.getItem('auth'),
 		},

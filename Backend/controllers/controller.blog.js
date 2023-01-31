@@ -23,12 +23,15 @@ module.exports = {
 		if (!existingUser) {
 			return 'Unable to find user by id';
 		}
+		let username = existingUser.firstName + ' ' + existingUser.lastName;
 		const blog = await Blog.create({
 			title: title,
 			image_url: imageUrl,
 			descripton: descripton,
 			user: decodedId,
+			userName: username,
 		});
+		username = '';
 
 		try {
 			const session = await mongoose.startSession();

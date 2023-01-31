@@ -1,48 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { logout } from '../../lib/store/slices/authSlice';
-import { useDispatch } from 'react-redux';
 
 function PublicHeader() {
-	const dispatch = useDispatch();
 	return (
 		<>
 			<div className="topCenter">
-				<ul className="centerList">
-					<li className="centerListItem">
-						<NavLink className={'navlinkItem'} to={'/blogs'}>
-							Home
-						</NavLink>
-					</li>
-					<li className="centerListItem">
-						<NavLink className={'navlinkItem'} to={'/write'}>
-							Add Blog
-						</NavLink>
-					</li>
-					<li className="centerListItem">
-						<NavLink className={'navlinkItem'} to={'/blogs'}>
-							Blogs
-						</NavLink>
-					</li>
-					<li className="centerListItem">
-						{' '}
-						<NavLink className={'navlinkItem'} to={'/post'}>
-							Post
-						</NavLink>
-					</li>
-				</ul>
+				<li className="centerListItem">
+					<NavLink className={'navlinkItem'} to={'/blogs'}>
+						Home
+					</NavLink>
+				</li>
 			</div>
 			<div className="topRight">
 				<ul className="rightList">
 					<li className="rightListItem">
-						<NavLink
-							className={'navlinkItem'}
-							onClick={() => {
-								dispatch(logout());
-							}}
-							to={'/login'}
-						>
-							Logout
+						<NavLink className={'navlinkItem'} to={'/login'}>
+							Login
+						</NavLink>
+					</li>
+					<li className="rightListItem">
+						<NavLink className={'navlinkItem'} to={'/register'}>
+							Register
 						</NavLink>
 					</li>
 				</ul>

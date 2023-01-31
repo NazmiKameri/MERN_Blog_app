@@ -6,6 +6,7 @@ const blogSchema = new mongoose.Schema(
 		image_url: { type: String, required: false },
 		descripton: { type: String, required: true },
 		user: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
+		userName: { type: String, ref: 'User', required: true },
 	},
 	{
 		timestamps: true,

@@ -3,15 +3,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding-top: 30px;
+    background-color: rgb(249, 240, 240);
 }
 
 .post {
     width: 600px;
     margin: 0px 25px 40px 25px;
     color: #666;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 8px;
+
 }
 
 .postImage {
@@ -19,7 +18,7 @@
     height: 300px;
     object-fit: cover;
     border-radius: 8px 8px 0 0%;
-    /* margin-top: 10px; */
+    margin-top: 10px;
 }
 
 .postInfo {
@@ -41,7 +40,6 @@
 }
 
 .postDescripton {
-    margin: 0 8px 10px 8px;
     font-size: 18px;
     color: #333;
     line-height: 24px;

@@ -1,10 +1,12 @@
 .singlePost {
     flex: 9;
+
 }
 
 .wrapper {
     margin: 0 auto;
     width: 80%;
+
 }
 
 .postImg {

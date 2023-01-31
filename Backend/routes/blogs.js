@@ -6,7 +6,7 @@ const { respond } = require('../lib/responder');
 const { validateUserToken, getDecodedToken } = require('../lib/tokenValidators');
 const jwt = require('jsonwebtoken');
 
-router.get('/', validateUserToken, async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
 		const blogs = await blogController.getAllBlogs();
 		return respond(res, blogs);
@@ -36,7 +36,7 @@ router.put('/edit-blog/:id', validateUserToken, async (req, res) => {
 		return respond(res, err.message, false);
 	}
 });
-router.get('/getblog/:id', validateUserToken, async (req, res) => {
+router.get('/getblog/:id', async (req, res) => {
 	try {
 		const blog = await blogController.getBlogById(req.params);
 		return respond(res, blog);
