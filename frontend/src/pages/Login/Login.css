@@ -49,6 +49,8 @@
 }
 
 .danger {
-    color: red;
-    background-color: rgba(255, 0, 0, 0.2);
+    color: rgb(174, 99, 99);
+    background-color: rgba(255, 0, 0, 0.5);
+    font-weight: 600;
+    font-size: 18px;
 }

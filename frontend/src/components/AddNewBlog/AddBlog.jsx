@@ -41,13 +41,13 @@ function AddBlog() {
 	return (
 		<div className="addNewBlog">
 			<form action="" className="writeForm" onSubmit={handleSubmit}>
-				{errorMessages.length > 0 &&
-					errorMessages.map((elem, index) => (
-						<Alert key={index} variant="danger" className="danger">
-							{elem}
-						</Alert>
-					))}
 				<div className="formGroup">
+					{errorMessages.length > 0 &&
+						errorMessages.map((elem, index) => (
+							<Alert key={index} variant="danger" className="danger">
+								{elem}
+							</Alert>
+						))}
 					<input
 						type="text"
 						placeholder="Image url"
@@ -76,7 +76,7 @@ function AddBlog() {
 						placeholder="Descripton"
 						className="srcInput inputTextArea"
 						required
-						minLength="1"
+						minLength="10"
 						value={descripton}
 						onChange={(e) => {
 							setDescripton(e.target.value);

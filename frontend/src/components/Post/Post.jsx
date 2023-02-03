@@ -4,7 +4,7 @@
 
 import { Link } from 'react-router-dom';
 
-function Post({ post, userName }) {
+function Post({ post }) {
 	return (
 		<div className="post">
 			<img
