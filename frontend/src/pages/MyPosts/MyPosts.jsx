@@ -23,9 +23,19 @@ function MyPosts() {
 
 	return (
 		<div className="posts">
-			{posts.map((post, index) => {
-				return <Post post={post} user={post.user} key={index} />;
-			})}
+			{posts.length > 0 ? (
+				posts.map((post, index) => {
+					return <Post post={post} user={post.user} key={index} />;
+				})
+			) : (
+				<>
+					<h1>
+						<p className="icon">&#9940;</p>
+						You dont have any blog added try adding one
+						<a href="/write"> here.</a>
+					</h1>
+				</>
+			)}
 		</div>
 	);
 }

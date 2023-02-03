@@ -32,6 +32,7 @@ const VerifyAccount = () => {
 			setVerified(true);
 		};
 		getData();
+		// eslint-disable-next-line
 	}, []);
 
 	return <>{verified !== null ? verified ? <VerifiedSuccess /> : 'Something went wrong!' : null}</>;
