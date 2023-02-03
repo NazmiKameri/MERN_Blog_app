@@ -19,7 +19,7 @@ const RegisterForm = ({ setRegistered }) => {
 		}
 		if (!passwordRegex.test(password)) {
 			errors.push(
-				`Password must be minimum eight characters,
+				`Password must be minimum six characters,
 				 `
 			);
 			errors.push(`at least one letter and one number`);

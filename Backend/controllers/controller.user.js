@@ -58,6 +58,16 @@ module.exports = {
 		const user = await User.findById({ _id: id }).exec();
 		return user;
 	},
+	editUser: async (req) => {
+		const id = req.decoded;
+		const { firstName, lastName } = req.body;
+
+		const user = await User.findByIdAndUpdate(id, {
+			firstName,
+			lastName,
+		}).exec();
+		return 'User has been edited Succefully';
+	},
 	verifyAccount: async (token) => {
 		if (!token) {
 			throw Error('There is no token provided');

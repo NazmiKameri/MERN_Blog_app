@@ -21,6 +21,9 @@ const LoginForm = () => {
 		if (!password) {
 			errors.push('Please provide an password!');
 		}
+		if (password && password.length < 6) {
+			errors.push('Minimum password length is 6');
+		}
 		if (errors.length) {
 			setErrorMessages(errors);
 			return;
@@ -57,7 +60,7 @@ const LoginForm = () => {
 				/>
 				<label>Password</label>
 				<input
-					type="text"
+					type="password"
 					className="loginInput"
 					placeholder="Enter your password"
 					value={password}

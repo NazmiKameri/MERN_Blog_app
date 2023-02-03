@@ -68,6 +68,20 @@ export const endpoints = {
 			Authorization: 'Bearer ' + localStorage.getItem('auth'),
 		},
 	},
+	getMe: {
+		url: '/users/',
+		method: 'GET',
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('auth'),
+		},
+	},
+	editMe: {
+		url: '/users/edit/',
+		method: 'PUT',
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('auth'),
+		},
+	},
 };
 
 const api = {

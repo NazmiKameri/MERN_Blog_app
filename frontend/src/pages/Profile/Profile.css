@@ -1,0 +1,51 @@
+.profile {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../public/office-table-with-cup-coffee-keyboard-notepad.jpg');
+
+    background-size: cover;
+
+}
+
+.profileForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 300px;
+    padding: 0 20px;
+    min-height: 300px;
+    background-color: rgba(237, 234, 229, 0.8);
+    border-radius: 8px;
+}
+
+.profileInfo {
+    border-bottom: 1px solid #333;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.inputProfile {
+    padding: 5px;
+
+}
+
+
+.edit {
+    float: right;
+    color: teal;
+}
+
+.profileButton {
+    padding: 10px 80px;
+}
+
+.succesEdit {
+    text-align: center;
+    color: white;
+    background-color: rgba(105, 193, 105, 0.8);
+    border-radius: 2px;
+    font-size: 18px;
+}

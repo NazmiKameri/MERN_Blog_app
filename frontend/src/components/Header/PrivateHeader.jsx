@@ -25,10 +25,16 @@ function PrivateHeader() {
 							My Blogs
 						</NavLink>
 					</li>
+					<li className="centerListItem"></li>
 				</ul>
 			</div>
 			<div className="topRight">
 				<ul className="rightList">
+					<li className="rightListItem">
+						<NavLink className={'navlinkItem'} to={'/profile'}>
+							Profile
+						</NavLink>
+					</li>
 					<li className="rightListItem">
 						<NavLink
 							className={'navlinkItem'}

@@ -5,6 +5,7 @@ import ResetPassword from '../pages/ForgotPassword/ResetPassword';
 import Login from '../pages/Login/Login';
 import MyPosts from '../pages/MyPosts/MyPosts';
 import Post from '../pages/Post/Post';
+import Profile from '../pages/Profile/Profile';
 import Register from '../pages/Register/Register';
 import VerifyAccount from '../pages/VerifyAccount/VerifyAccount';
 
@@ -43,6 +44,10 @@ const routesData = {
 	],
 	privateRoutes: [
 		{
+			path: '/profile',
+			element: <Profile />,
+		},
+		{
 			path: '/post/me',
 			element: <MyPosts />,
 		},
@@ -52,7 +57,7 @@ const routesData = {
 		},
 		{
 			path: '/',
-			element: <Login />,
+			element: <BlogPost />,
 		},
 	],
 };
