@@ -22,9 +22,9 @@
 }
 
 .topLeft svg {
-    margin-top: 50px;
+    margin-top: 100px;
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
 }
 
 .centerList,
