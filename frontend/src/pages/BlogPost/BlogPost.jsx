@@ -31,7 +31,7 @@ function BlogPost() {
 				<>
 					<h1>
 						<p className="icon">&#9940;</p>
-						Thre isnt any blog added try adding one
+						There isnt any blog added try adding one
 						<a href="/write"> here.</a>
 					</h1>
 				</>

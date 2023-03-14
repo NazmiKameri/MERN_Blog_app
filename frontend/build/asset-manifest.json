@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.abd3a468.css",
+    "main.js": "/static/js/main.9e4eea3e.js",
+    "static/media/office-table-with-cup-coffee-keyboard-notepad.jpg": "/static/media/office-table-with-cup-coffee-keyboard-notepad.0c8e1cc4c26e4ced5d6d.jpg",
+    "index.html": "/index.html",
+    "main.abd3a468.css.map": "/static/css/main.abd3a468.css.map",
+    "main.9e4eea3e.js.map": "/static/js/main.9e4eea3e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abd3a468.css",
+    "static/js/main.9e4eea3e.js"
+  ]
+}
